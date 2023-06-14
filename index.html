@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+		<script type="text/javascript" src="./js/search.js" defer></script>
+        <script type="text/javascript" src="./js/data_type.js" defer></script>
+        <script type="text/javascript" src="./js/pop_up.js" defer></script>
+        <script type="text/javascript" src="./js/array_test.js" defer></script>
+        <script type="text/javascript" src="./js/array_test2.js" defer></script>
+		<script type="text/javascript" src="./js/login.js" defer></script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>20200620 유창희</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <style>
+            /* 검색창과 로고 이미지를 감싸는 div 태그 스타일 */
+            .search-container {
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                margin-top: 200px;
+            }
+            /* 검색 버튼 스타일 */
+            /* 로고 이미지 스타일 */
+            .logo {
+                width: 400px;
+                height: 300px;
+            }
+            /* 행렬 테이블 스타일 */
+            .matrix-table {
+                border-collapse: collapse;
+                width: 400px;
+                margin: 0 auto;
+            }
+            .matrix-table td {
+                padding: 10px;
+                border: 1px solid #ddd;
+                text-align: center;
+                font-size: 18px;
+            }
+            /* 행렬 제목 스타일 */
+            .matrix-title {
+                text-align: center;
+                font-size: 24px;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+            /* 행렬 섹션 스타일 */
+            .matrix-container {
+                margin-top: 50px;
+                text-align: center;
+            }
+            /* 탭 버튼 스타일 */
+            .tab {
+                display: inline-block;
+                padding: 10px 20px;
+                background-color: #f1f1f1;
+                cursor: pointer;
+                border-radius: 4px 4px 0 0;
+                margin-right: 5px;
+            }
+            /* 활성 탭 버튼 스타일 */
+            .active-tab {
+                background-color: #ddd;
+            }
+            /* 리스트 스타일 */
+            .list {
+                display: none;
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                max-height: 100px;
+                overflow: auto;
+                border: 1px solid #ddd;
+                border-radius: 0 0 4px 4px;
+            }
+            /* 리스트 아이템 스타일 */
+            .list-item {
+                padding: 5px;
+                cursor: pointer;
+            }
+            /* 활성 리스트 아이템 스타일 */
+            .active-list-item {
+                background-color: #ddd;
+            }
+            /* 마우스를 가져다 대었을 때 리스트 보이도록 하는 스타일 */
+            .matrix-container:hover .list {
+                display: block;
+            }
+            .external-link-button {
+                display: inline-block;
+                padding: 10px 20px;
+                background-color: #f1f1f1;
+                cursor: pointer;
+                border-radius: 4px;
+                margin: 10px;
+            }
+        </style>
+    </head>
+    <body onload="pop_up();">
+       <nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">전체 메뉴</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <li class="nav-item">
+  <a class="nav-link active" aria-current="page" href="https://yoochang.run.goorm.site/WEB_202006201/index.html">홈페이지</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="https://www.google.com/search">검색</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="https://www.youtube.com">유튜브</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="https://www.google.com/maps">지도</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="https://mail.google.com">메일</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="https://play.google.com/store/apps/details?id=com.dogfooderz.monkey.openappinplaystore&hl=ko&gl=US">앱스토어</a>
+</li>    
+<li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            기타 웹사이트
+          </a>
+          <ul class="dropdown-menu">
+  <li><a class="dropdown-item" href="https://www.naver.com">네이버</a></li>
+  <li><a class="dropdown-item" href="https://www.daum.net">다음</a></li>
+  <li><a class="dropdown-item" href="https://www.nate.com">네이트</a></li>
+</ul>
+</li>
+</ul>
+		<li class="nav-item"> <button class="btn btn-outline-success" type="submit" onclick="location.href='./login/login.html'">로그인</button></li>
+		<button class="btn btn-outline-success" type="submit" onclick="location.href='./join.html'">회원가입</button>
+    </div>
+  </div>
+</nav>
+		
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <div class="container-fluid">
+    <a class="navbar-brand" href="#">하단 메뉴</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+        <li class="nav-item">
+           <a class="nav-link" href="profile/profile.html" target='_blank'>소개 페이지</a>
+        </li>
+		</ul>
+    </div>
+    </div>
+</nav>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+        <div class="search-container">
+            <img src="img/glogo.png" alt="로고 이미지" class="logo">
+            <form action="https://www.google.co.kr/search" method="GET" target="_blank">
+            <div class="d-flex justify-content-center">
+                <mx-auto>
+                    <input name="query" type="text" class="form-control-lg" placeholder="검색어 입력" aria-label="search" aria-describedby="search_btn">
+                </mx-auto>
+                <button class="btn btn-success" type="submit" id="search_btn">검색</button>
+           </div>
+        </form>
+
+        </div>
+        <div class="matrix-container">
+            <div>
+                <button class="tab active-tab" id="popular-tab">인기 검색어</button>
+                <button class="tab" id="recent-tab">최근 검색어</button>
+            </div>
+            <ul class="list" id="popular-list">
+                <li class="list-item">뉴스</li>
+                <li class="list-item">카페</li>
+                <li class="list-item">블로그</li>
+                <li class="list-item">쇼핑</li>
+                <li class="list-item">증권</li>
+                <li class="list-item">지도</li>
+            </ul>
+            <ul class="list" id="recent-list"><!-- 최근 검색어 리스트 아이템 추가 --></ul>
+        </div>  
+    </body>
+</html>
